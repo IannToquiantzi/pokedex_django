@@ -1,18 +1,18 @@
 # Pokédex Django App
 A project created by IannToquiantzi because he was boring 
 
-Aplicación web desarrollada con Django que consume la PokéAPI, almacena datos en base de datos y realiza análisis con Pandas y Numpy.
+A web application developed with Django that consumes the PokéAPI, stores data in a database, and performs analytics with Pandas and NumPy.
 
-## Tecnologías
+## Technologies
 - Python
 - Django
 - Pandas
-- Numpy
+- NumPy
 - JavaScript
 
-## Funcionalidades
-- Consumo de API externa
-- Persistencia en base de datos
-- Dashboard con estadísticas
+## Features
+- External API consumption
+- Database persistence
+- Dashboard with statistics
 
 
