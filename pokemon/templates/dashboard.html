@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokédex</title>
+</head>
+<body>
+
+<h1>Pokédex</h1>
+
+<!-- FORMULARIO -->
+<form method="POST" action="{% url 'add_pokemon' %}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Ej: pikachu">
+    <button type="submit">Agregar</button>
+</form>
+
+<!-- ESTADÍSTICAS -->
+<h2>Estadísticas</h2>
+<p>Altura promedio: {{ stats.avg_height }}</p>
+<p>Peso promedio: {{ stats.avg_weight }}</p>
+<p>Max EXP: {{ stats.max_exp }}</p>
+
+<!-- LISTA -->
+<h2>Pokémon</h2>
+<ul>
+  {% for p in pokemons %}
+    <li>{{ p.name }} | Altura: {{ p.height }} | Peso: {{ p.weight }}</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
