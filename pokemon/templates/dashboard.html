@@ -2,31 +2,38 @@
 <html>
 <head>
     <title>Pokédex</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>Pokédex</h1>
+<div class="container py-5">
 
-<!-- FORMULARIO -->
-<form method="POST" action="{% url 'add_pokemon' %}">
-    {% csrf_token %}
-    <input type="text" name="name" placeholder="Ej: pikachu">
-    <button type="submit">Agregar</button>
-</form>
+    <h1 class="text-center mb-4">Pokedex</h1>
 
-<!-- ESTADÍSTICAS -->
-<h2>Estadísticas</h2>
-<p>Altura promedio: {{ stats.avg_height }}</p>
-<p>Peso promedio: {{ stats.avg_weight }}</p>
-<p>Max EXP: {{ stats.max_exp }}</p>
+    <!-- Formulario -->
+    <form method="POST" action="{% url 'add_pokemon' %}" class="d-flex justify-content-center mb-5">
+        {% csrf_token %}
+        <input type="text" name="name" class="form-control w-50 me-2" placeholder="Buscar Pokémon (ej: pikachu)">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
 
-<!-- LISTA -->
-<h2>Pokémon</h2>
-<ul>
-  {% for p in pokemons %}
-    <li>{{ p.name }} | Altura: {{ p.height }} | Peso: {{ p.weight }}</li>
-  {% endfor %}
-</ul>
+    <!-- Lista -->
+    <div class="row">
+        {% for pokemon in pokemons %}
+        <div class="col-md-4 mb-4">
+            <div class="card bg-secondary text-white shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ pokemon.nombre }}</h5>
+                    <img src="{{ pokemon.imagen }}" class="img-fluid" style="height:120px;">
+                    <p class="mt-2">Tipo: {{ pokemon.tipo }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
+</div>
 </body>
 </html>
