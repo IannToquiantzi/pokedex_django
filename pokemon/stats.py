@@ -10,7 +10,7 @@ def get_stats():
         return {}
     
     return{
-        'average_height': np.mean(df['height']),
-        'average_weight': np.mean(df['weight']),
-        'average_base_experience': np.mean(df['base_experience'])
+        'average_height': df['height'].mean(),
+        'average_weight': df['weight'].mean(),
+        'average_base_experience': df['base_experience'].mean()
     }

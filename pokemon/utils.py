@@ -12,6 +12,10 @@ def save_pokemon(name):
         tipo = data['types'][0]['type']['name']
         imagen = data['sprites']['front_default']
         nombre = data['name']
+        height = data.get('height')
+        weight = data.get('weight')
+        base_experience = data.get('base_experience')
+        
     except (KeyError, IndexError):
         print("Error en estructura de API")
         return None
@@ -20,7 +24,11 @@ def save_pokemon(name):
         nombre=nombre,
         defaults={
             "tipo": tipo,
-            "imagen": imagen
+            "imagen": imagen,
+            "height": height,
+            "weight": weight,
+            "base_experience": base_experience
+            
         }
     )
     
